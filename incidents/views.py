@@ -224,7 +224,7 @@ def log(what, user, incident=None, comment=None):
     # dirty hack to not log when in debug mode
     import sys
     if getattr(settings, 'DEBUG', False):
-        print "DEBUG: Not logging"
+        print("DEBUG: Not logging")
         return
 
     log = Log()
