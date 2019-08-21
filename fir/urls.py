@@ -7,6 +7,7 @@ from incidents import views
 
 # urls for core FIR components
 urlpatterns = [
+    # url(r'^incidents', include('incidents.urls')),
     url(r'^logout/', views.user_logout, name='logout'),
     url(r'^incidents/', include('incidents.urls', namespace='incidents')),
     url(r'^search/$', views.search, name='search'),
@@ -15,7 +16,7 @@ urlpatterns = [
     url(r'^ajax/', include('incidents.custom_urls.ajax', namespace='ajax')),
     url(r'^user/', include('incidents.custom_urls.user', namespace='user')),
     url(r'^dashboard/', include('incidents.custom_urls.dashboard', namespace='dashboard')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/',admin.site.urls),
     url(r'^$', views.dashboard_main),
 ]
 

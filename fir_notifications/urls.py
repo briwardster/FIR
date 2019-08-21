@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from fir_notifications import views
 
+app_name = 'notifications'
 
 urlpatterns = [
     url(r'^subscriptions$', views.subscriptions, name='subscriptions'),

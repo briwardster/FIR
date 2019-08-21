@@ -11,7 +11,7 @@ class RecipientTemplate(models.Model):
     recipient_to = models.TextField()
     recipient_cc = models.TextField()
     recipient_bcc = models.TextField(null=True, blank=True)
-    business_line = models.ForeignKey(BusinessLine, null=True, blank=True)
+    business_line = models.ForeignKey(BusinessLine, null=True, blank=True, on_delete=models.PROTECT)
 
     def __unicode__(self):
         return self.name
@@ -25,7 +25,7 @@ class CategoryTemplate(models.Model):
     type = models.CharField(max_length=100)
     body = models.TextField(help_text="This is a Markdown field. You can use django templating language.")
     subject = models.TextField()
-    incident_category = models.ForeignKey(IncidentCategory)
+    incident_category = models.ForeignKey(IncidentCategory, on_delete=models.PROTECT)
 
     def __unicode__(self):
         return self.name

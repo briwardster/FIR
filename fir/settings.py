@@ -32,6 +32,8 @@ REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'localhost')
 REDIS_PORT = 6379
 REDIS_DB = 0
 
+SILENCED_SYSTEM_CHECKS = ['admin.E408','admin.E409','admin.E410']
+
 try:
     from fir.config.dev import *
 except ImportError:

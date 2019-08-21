@@ -63,7 +63,7 @@ class FIRModel:
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User,on_delete=models.PROTECT)
     incident_number = models.IntegerField(default=50)
     hide_closed = models.BooleanField(default=False)
 
@@ -75,11 +75,11 @@ class Profile(models.Model):
 
 
 class Log(models.Model):
-    who = models.ForeignKey(User, null=True, blank=True)
+    who = models.ForeignKey(User, null=True, blank=True, on_delete=models.PROTECT)
     what = models.CharField(max_length=100, choices=STATUS_CHOICES)
     when = models.DateTimeField(auto_now_add=True)
-    incident = models.ForeignKey('Incident', null=True, blank=True)
-    comment = models.ForeignKey('Comments', null=True, blank=True)
+    incident = models.ForeignKey('Incident', null=True, blank=True, on_delete=models.PROTECT)
+    comment = models.ForeignKey('Comments', null=True, blank=True, on_delete=models.PROTECT)
 
     def __unicode__(self):
         if self.incident:
@@ -99,7 +99,7 @@ class LabelGroup(models.Model):
 
 class Label(models.Model):
     name = models.CharField(max_length=50)
-    group = models.ForeignKey(LabelGroup)
+    group = models.ForeignKey(LabelGroup,on_delete=models.PROTECT)
 
     def __unicode__(self):
         return "%s" % (self.name)
@@ -125,8 +125,8 @@ class BusinessLine(MP_Node, AuthorizationModelMixin):
 
 class AccessControlEntry(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), on_delete=models.CASCADE)
-    business_line = models.ForeignKey(BusinessLine, verbose_name=_('business line'), related_name='acl')
-    role = models.ForeignKey('auth.Group', verbose_name=_('role'))
+    business_line = models.ForeignKey(BusinessLine, verbose_name=_('business line'), related_name='acl', on_delete=models.PROTECT)
+    role = models.ForeignKey('auth.Group', verbose_name=_('role'),on_delete=models.PROTECT)
 
     def __unicode__(self):
         return _("{} is {} on {}").format(self.user, self.role, self.business_line)
@@ -140,7 +140,7 @@ class BaleCategory(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     category_number = models.IntegerField()
-    parent_category = models.ForeignKey('BaleCategory', null=True, blank=True)
+    parent_category = models.ForeignKey('BaleCategory', null=True, blank=True, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name_plural = "Bale categories"
@@ -154,7 +154,7 @@ class BaleCategory(models.Model):
 
 class IncidentCategory(models.Model):
     name = models.CharField(max_length=100)
-    bale_subcategory = models.ForeignKey(BaleCategory)
+    bale_subcategory = models.ForeignKey(BaleCategory,on_delete=models.PROTECT)
     is_major = models.BooleanField(default=False)
 
     class Meta:
@@ -175,19 +175,19 @@ class Incident(FIRModel, models.Model):
     is_starred = models.BooleanField(default=False)
     subject = models.CharField(max_length=256)
     description = models.TextField()
-    category = models.ForeignKey(IncidentCategory)
+    category = models.ForeignKey(IncidentCategory,on_delete=models.PROTECT)
     concerned_business_lines = models.ManyToManyField(BusinessLine, blank=True)
     main_business_lines = models.ManyToManyField(BusinessLine, related_name='incidents_affecting_main', blank=True)
-    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, related_name='detection_label')
+    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, related_name='detection_label',on_delete=models.PROTECT)
     severity = models.IntegerField(choices=SEVERITY_CHOICES)
     is_incident = models.BooleanField(default=False)
     is_major = models.BooleanField(default=False)
     actor = models.ForeignKey(Label, limit_choices_to={'group__name': 'actor'}, related_name='actor_label', blank=True,
-                              null=True)
+                              null=True,on_delete=models.PROTECT)
     plan = models.ForeignKey(Label, limit_choices_to={'group__name': 'plan'}, related_name='plan_label', blank=True,
-                             null=True)
+                             null=True,on_delete=models.PROTECT)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=_("Open"))
-    opened_by = models.ForeignKey(User)
+    opened_by = models.ForeignKey(User,on_delete=models.PROTECT)
     confidentiality = models.IntegerField(choices=CONFIDENTIALITY_LEVEL, default='1')
 
     def __unicode__(self):
@@ -284,9 +284,9 @@ class Incident(FIRModel, models.Model):
 class Comments(models.Model):
     date = models.DateTimeField(default=datetime.datetime.now, blank=True)
     comment = models.TextField()
-    action = models.ForeignKey(Label, limit_choices_to={'group__name': 'action'}, related_name='action_label')
-    incident = models.ForeignKey(Incident)
-    opened_by = models.ForeignKey(User)
+    action = models.ForeignKey(Label, limit_choices_to={'group__name': 'action'}, related_name='action_label',on_delete=models.PROTECT)
+    incident = models.ForeignKey(Incident,on_delete=models.PROTECT)
+    opened_by = models.ForeignKey(User,on_delete=models.PROTECT)
 
     class Meta:
         verbose_name_plural = 'comments'
@@ -344,7 +344,7 @@ class Comments(models.Model):
 class Attribute(models.Model):
     name = models.CharField(max_length=50)
     value = models.CharField(max_length=200)
-    incident = models.ForeignKey(Incident)
+    incident = models.ForeignKey(Incident,on_delete=models.PROTECT)
 
     def __unicode__(self):
         return "%s: %s" % (self.name, self.value)
@@ -366,13 +366,13 @@ class IncidentTemplate(models.Model):
     name = models.CharField(max_length=100)
     subject = models.CharField(max_length=256, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    category = models.ForeignKey(IncidentCategory, null=True, blank=True)
+    category = models.ForeignKey(IncidentCategory, null=True, blank=True, on_delete=models.PROTECT)
     concerned_business_lines = models.ManyToManyField(BusinessLine, blank=True)
-    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, null=True, blank=True)
+    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, null=True, blank=True, on_delete=models.PROTECT)
     severity = models.IntegerField(choices=SEVERITY_CHOICES, null=True, blank=True)
     is_incident = models.BooleanField(default=False)
-    actor = models.ForeignKey(Label, limit_choices_to={'group__name': 'actor'}, related_name='+', blank=True, null=True)
-    plan = models.ForeignKey(Label, limit_choices_to={'group__name': 'plan'}, related_name='+', blank=True, null=True)
+    actor = models.ForeignKey(Label, limit_choices_to={'group__name': 'actor'}, related_name='+', blank=True, null=True, on_delete=models.PROTECT)
+    plan = models.ForeignKey(Label, limit_choices_to={'group__name': 'plan'}, related_name='+', blank=True, null=True, on_delete=models.PROTECT)
 
     def __unicode__(self):
         return self.name

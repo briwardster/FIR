@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='todoitem',
             name='business_line',
-            field=models.ForeignKey(blank=True, to='incidents.BusinessLine', null=True),
+            field=models.ForeignKey(blank=True, to='incidents.BusinessLine', null=True, on_delete=models.PROTECT),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='todoitem',
             name='category',
-            field=models.ForeignKey(blank=True, to='incidents.IncidentCategory', null=True),
+            field=models.ForeignKey(blank=True, to='incidents.IncidentCategory', null=True, on_delete=models.PROTECT),
             preserve_default=True,
         ),
     ]

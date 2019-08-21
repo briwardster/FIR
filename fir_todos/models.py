@@ -7,9 +7,9 @@ from incidents.models import Incident, IncidentCategory, BusinessLine, Label
 
 class TodoItem(models.Model):
     description = models.CharField(max_length=140)
-    incident = models.ForeignKey(Incident, blank=True, null=True)
-    category = models.ForeignKey(IncidentCategory, blank=True, null=True)
-    business_line = models.ForeignKey(BusinessLine, blank=True, null=True)
+    incident = models.ForeignKey(Incident, blank=True, null=True, on_delete=models.PROTECT)
+    category = models.ForeignKey(IncidentCategory, blank=True, null=True, on_delete=models.PROTECT)
+    business_line = models.ForeignKey(BusinessLine, blank=True, null=True, on_delete=models.PROTECT)
     done = models.BooleanField(default=False)
     done_time = models.DateTimeField(null=True, blank=True)
     deadline = models.DateField(null=True, blank=True)
@@ -38,9 +38,9 @@ class TodoItemForm(forms.ModelForm):
 
 class TodoListTemplate(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(IncidentCategory, null=True, blank=True)
+    category = models.ForeignKey(IncidentCategory, null=True, blank=True, on_delete=models.PROTECT)
     concerned_business_lines = models.ManyToManyField(BusinessLine, blank=True)
-    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, null=True, blank=True)
+    detection = models.ForeignKey(Label, limit_choices_to={'group__name': 'detection'}, null=True, blank=True, on_delete=models.PROTECT)
     todolist = models.ManyToManyField(TodoItem, blank=True, limit_choices_to={"incident__isnull": True})
 
     def __unicode__(self):

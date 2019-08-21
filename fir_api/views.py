@@ -15,7 +15,8 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authtoken.models import Token
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework import viewsets
-from rest_framework.decorators import detail_route
+# from rest_framework.decorators import detail_route
+from rest_framework.decorators import action
 from rest_framework import renderers
 
 
@@ -66,11 +67,16 @@ class FileViewSet(ListModelMixin, RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = FileSerializer
     permission_classes = (IsAuthenticated, IsIncidentHandler)
 
-    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    # @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    # def download(self, request, pk):
+    #     return do_download(request, pk)
+
+    @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def download(self, request, pk):
         return do_download(request, pk)
 
-    @detail_route(methods=["POST"])
+    @action(detail=True, methods=['POST'])
+    # @detail_route(methods=["POST"])
     def upload(self, request, pk):
         files = request.data['files']
         incident = get_object_or_404(Incident, pk=pk)
