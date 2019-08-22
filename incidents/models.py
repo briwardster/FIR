@@ -235,7 +235,8 @@ class Incident(FIRModel, models.Model):
         mainbls = set()
         for bl in self.concerned_business_lines.all():
             mainbls.add(bl.get_root())
-        self.main_business_lines = list(mainbls)
+        # self.main_business_lines.set = list(mainbls)
+        self.main_business_lines.set(list(mainbls))
 
     def refresh_artifacts(self, data=""):
         if data == "":
