@@ -1,0 +1,642 @@
+    1  sudo apt install ssh
+    2  ifconfig
+    3  sudo apt install net-tools
+    4  ifconfig
+    5  ls -lrthal
+    6  cd ..
+    7  sudo chown -R vault vault
+    8  cd vault/
+    9  ls
+   10  cd config/
+   11  ls
+   12  ls -lrthal
+   13  sudo chgrp vault default.hcl 
+   14  ls -lrthal
+   15  cd ../tls/
+   16  ls
+   17  ls -lrthal
+   18  sudo chgrp vault vaultkey.key 
+   19  sudo chgrp vault vaultcert.crt 
+   20  ls -lrthal
+   21  sudo setcap cap_ipc_lock=+ep /opt/vault/bin/vault 
+   22  cd ..
+   23  vault status
+   24  cd ..
+   25  cd config/
+   26  sudo vim default.hcl 
+   27  vault status
+   28  export VAULT_ADDR='http://127.0.0.1:8200'
+   29  vault status
+   30  vault kv enabl-versioning secret/
+   31  vault kv enable-versioning secret/
+   32  vault login
+   33  vault kv enable-versioning secret/
+   34  ls
+   35  sudo vim default.hcl 
+   36  vault status
+   37  vault list
+   38  vault list secrts
+   39  vault list secrets
+   40  vault list secret
+   41  vault kv list secret
+   42  vault kv list secret -detailed
+   43  vault kv list secret detailed
+   44  vault kv list secret
+   45  vault kv list help
+   46  vault kv
+   47  vault kv get secret/cubbyhole
+   48  vault kv get testkv2
+   49  vault kv get testkv2/one
+   50  vault list secrets -detailed
+   51  vault
+   52  vault list
+   53  vault secrets list -detailed
+   54  ssh
+   55  cd /opt/vault
+   56  ls
+   57  cd config/
+   58  ls
+   59  sudo vim default.hcl 
+   60  cd ..
+   61  cd log
+   62  cat vault-error.log 
+   63  cat vault-stdout.log 
+   64  tail -f vault-stdout.log 
+   65  sudo git-clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   66  git-clone
+   67  sudo git clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   68  git
+   69  sudo apt install git
+   70  sudo git clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   71  sudo git clone --branch 0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   72  sudo git clone --b v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   73  sudo git clone -b v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   74  sudo git clone https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   75  sudo git clone https://github.com/hashicorp/terraform-aws-vault.git
+   76  ls
+   77  cd terraform-aws-vault/
+   78  ls
+   79  cd modules/
+   80  cd install-vault/
+   81  ls
+   82  ./install-vault --version 1.0.1
+   83  cd /opt
+   84  ls
+   85  cd vault/
+   86  ls
+   87  cd config/
+   88  ls
+   89  vault
+   90  vault status
+   91  cd /etc
+   92  ls
+   93  cd supervisor/
+   94  ls
+   95  cat supervisord.conf 
+   96  ls
+   97  cd conf.d/
+   98  ls
+   99  cd /
+  100  cd /opt
+  101  cd vault
+  102  cd bin
+  103  ls
+  104  cd ..
+  105  ls
+  106  sudo ls tls
+  107  sudo cd tls
+  108  sudo ls log
+  109  cd tls
+  110  ls
+  111  openssl
+  112  openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365-nodes -out vaultcert.crt -keyout vaultkey.key
+  113  openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out vaultcert.crt -keyout vaultkey.key
+  114  sudo openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out vaultcert.crt -keyout vaultkey.key
+  115  ls
+  116  cd ..
+  117  cd bin
+  118  ./run-vault --tls-cert-file ../tls/vaultcert.crt --tls-key-file ../tls/vaultkey.key 
+  119  cd ..
+  120  ls
+  121  cd config/
+  122  ls
+  123  cd /etc/supervisor/conf.d/
+  124  ls
+  125  cd /opt/vault/bin
+  126  ls
+  127  sudo ./run-vault --tls-cert-file ../tls/vaultcert.crt --tls-key-file ../tls/vaultkey.key 
+  128  ./run-vault 
+  129  ls
+  130  cd ..
+  131  cd config/
+  132  ls
+  133  cd /etc/supervisor/conf.d/
+  134  ls
+  135  touch run-vault.conf
+  136  sudo touch run-vault.conf
+  137  ls
+  138  cd /opt/vault
+  139  cd config/
+  140  ls
+  141  touch default.hcl
+  142  sudo touch default.hcl
+  143  ls -lrthal
+  144  cd ..
+  145  ls
+  146  sudo ls -lrthal
+  147  env
+  148  ls
+  149  cd data
+  150  ls
+  151  cd ..
+  152  ls
+  153  cd /etc/supervisor/conf.d/
+  154  sudo vim run-vault.conf 
+  155  sudo apt install vim
+  156  sudo vim run-vault.conf 
+  157  ls /opt/vault/tls
+  158  sudo chmod 400 /opt/vault/tls/vaultkey.key 
+  159  sudo supervisorctl reread
+  160  sudo supervisorctl update
+  161  sudo supervisorctl start vault
+  162  sudo supervisorctl restart vault
+  163  export VAULT_ADDR='http://127.0.0.1:8200'
+  164  vault status
+  165  vualt secrets list
+  166  vault secrets list
+  167  vault secrets list -detailed
+  168  vault secrets/testkv2 list -detailed
+  169  vault path-help
+  170  vault path-help secrets
+  171  vault path-help secret
+  172  vault path-help pki
+  173  vault path-help testkv2
+  174  vault path-help testkv2/data
+  175  vault path-help testkv2/config
+  176  cd /opt/vault
+  177  cd log
+  178  ls
+  179  ls -lrthal
+  180  tail -f vault-stdout.log 
+  181  ifconfig
+  182  ls
+  183  tail -f vault_audit.log 
+  184  sudo tail -f vault_audit.log 
+  185  history export
+  186  history | grep export
+  187  export VAULT_ADDR='http:127.0.0.1:8200'
+  188  vault status
+  189  export VAULT_ADDR='http://127.0.0.1:8200'
+  190  vault status
+  191  history | grep restart
+  192  sudo supervisorctl restart vault
+  193  sudo vim /opt/vault/config/
+  194  sudo vim /opt/vault/config/default.hcl 
+  195  sudo supervisorctl restart vault
+  196  vault status
+  197  vault unseal
+  198  vault operator unseal
+  199  vault login
+  200  vault status
+  201  vault audit enable file file_path=/opt/vault/log/vault_audit.log
+  202  history
+  203  export VAULT_ADDR='http://127.0.0.1:8200'
+  204  sudo supervisorctl restart vault
+  205  ifconfig
+  206  vault status
+  207  cd /opt/vault/config/
+  208  ls
+  209  sudo vim default.hcl 
+  210  vault login
+  211  vault write auth/userpass/users/hward password=super123 policies=root
+  212  sudo vim default.hcl 
+  213  vault status
+  214  ifconfig
+  215  sudo vim default.hcl 
+  216  ifconfig
+  217  sudo vim default.hcl 
+  218  sudo shutdown -r now
+  219  sudo apt-get update
+  220  python3
+  221  sudo apt-get install mysql-server
+  222  sudo apt-get install libmysqlclient-dev
+  223  sudo apt-get install gettext
+  224  sudo apt-get install python3-dev
+  225  sudo apt-get install python3-lxml
+  226  sudo apt-get install git
+  227  sudo apt-get install libxml2-dev
+  228  sudo apt-get install libxslt1-dev
+  229  sudo apt-get install libz-dev
+  230  sudo apt-get install nginx
+  231  history >> install1.txt
+  232  ls
+  233  mysql -uroot -p
+  234  sudo grep 'temporary password' /var/log/mysql/error.log 
+  235  mysql -u root
+  236  sudo mysql -u root
+  237  sudo pip3 install virtualenv
+  238  sudo apt-get install pip3
+  239  pip3
+  240  sudo apt-get install python3-pip
+  241  sudo pip3 install virtualenv
+  242  virtualenv env-FIR
+  243  source env-FIR/bin/activate
+  244  history >> install2.txt
+  245  git clone https://github.com/briwardster/FIR.git
+  246  cd FIR/
+  247  pip3 install -r requirements.txt 
+  248  pip3 install mysql-python
+  249  ls
+  250  cata requirements.txt 
+  251  cat requirements.txt 
+  252  ls
+  253  cp ~/Downloads/MySQL-python-1.2.5.zip .
+  254  ls
+  255  unzip MySQL-python-1.2.5.zip 
+  256  ls
+  257  cd MySQL-python-1.2.5/
+  258  ls
+  259  vim setup_posix.py 
+  260  cd MySQLdb/
+  261  vim cursors.py 
+  262  vim connections.py 
+  263  cd ..
+  264  ls
+  265  cat INSTALL 
+  266  python3 setup.py install
+  267  cd ..
+  268  ls
+  269  cp fir/config/production.py.sample fir/config/production.py
+  270  vim fir/config/production.py
+  271  ls
+  272  cd con
+  273  cd fir/config/
+  274  ls
+  275  vim base.py 
+  276  cd ..
+  277  cp fir/config/installed_apps.txt.sample fir/config/installed_apps.txt
+  278  python3 manage.py migrate --settings fir.config.production
+  279  cd fir/config
+  280  ls
+  281  vim production.py
+  282  cd ..
+  283  python3 manage.py migrate --settings fir.config.production
+  284  cd MySQL-python-1.2.5/
+  285  ls
+  286  cd MySQLdb/
+  287  vim connections.py 
+  288  cd ..
+  289  python3 setup.py install
+  290  cd ..
+  291  python3 manage.py migrate --settings fir.config.production
+  292  cd MySQL-python-1.2.5/
+  293  cd MySQLdb/
+  294  vim connections.py 
+  295  python3 setup.py install
+  296  cd ..
+  297  python3 setup.py install
+  298  cd ..
+  299  python3 manage.py migrate --settings fir.config.production
+  300  cd MySQL-python-1.2.5/
+  301  cd MySQLdb/
+  302  ls
+  303  vim connections.py 
+  304  cd ..
+  305  python3 setup.py install
+  306  cd ..
+  307  python3 manage.py migrate --settings fir.config.production
+  308  2to3-2.7 
+  309  2to3-2.7 --help
+  310  cd MySQL-python-1.2.5/
+  311  cd MySQLdb/
+  312  cp connections.py connections.py.bak
+  313  2to3
+  314  sudo apt-get install 2to3
+  315  2to3 connections.py 
+  316  vim connections.py
+  317  ls
+  318  2to3 connections.py 
+  319  2to3 -w connections.py 
+  320  vim connections.py
+  321  cd ..
+  322  python3 setup.py install
+  323  cd ..
+  324  python3 manage.py migrate --settings fir.config.production
+  325  cd MySQL-python-1.2.5/
+  326  cd MySQLdb/
+  327  2to3 cursors.py 
+  328  2to3 -w cursors.py 
+  329  git status
+  330  cd ..
+  331  python3 setup.py install
+  332  cd ..
+  333  python3 manage.py migrate --settings fir.config.production
+  334  cd MySQL-python-1.2.5/MySQLdb/
+  335  cd ..
+  336  python3 manage.py migrate --settings fir.config.production
+  337  cd MySQL-python-1.2.5/
+  338  cd MySQLdb/
+  339  2to3 connections.py 
+  340  cd ..
+  341  ls
+  342  vim requirements.txt 
+  343  pip3 install -r requirements.txt 
+  344  vim requirements.txt 
+  345  pip3 install -r requirements.txt 
+  346  python3 manage.py migrate --settings fir.config.production
+  347  vim requirements.txt 
+  348  pip3 install -r requirements.txt 
+  349  python3 manage.py migrate --settings fir.config.production
+  350  vim fir_plugins/models.py 
+  351  python3 manage.py migrate --settings fir.config.production
+  352  vim incidents/models.py 
+  353  python3 manage.py migrate --settings fir.config.production
+  354  vim incidents/models.py 
+  355  python3 manage.py migrate --settings fir.config.production
+  356  vim incidents/models.py 
+  357  python3 manage.py migrate --settings fir.config.production
+  358  vim incidents/models.py 
+  359  python3 manage.py migrate --settings fir.config.production
+  360  vim incidents/models.py 
+  361  python3 manage.py migrate --settings fir.config.production
+  362  vim incidents/models.py 
+  363  python3 manage.py migrate --settings fir.config.production
+  364  vim incidents/models.py 
+  365  python3 manage.py migrate --settings fir.config.production
+  366  vim incidents/models.py 
+  367  python3 manage.py migrate --settings fir.config.production
+  368  vim incidents/models.py 
+  369  python3 manage.py migrate --settings fir.config.production
+  370  vim incidents/models.py 
+  371  python3 manage.py migrate --settings fir.config.production
+  372  vim incidents/models.py 
+  373  python3 manage.py migrate --settings fir.config.production
+  374  vim fir_alerting/models.py 
+  375  python3 manage.py migrate --settings fir.config.production
+  376  vim fir_todos/models.py 
+  377  python3 manage.py migrate --settings fir.config.production
+  378  vim fir_todos/models.py 
+  379  python3 manage.py migrate --settings fir.config.production
+  380  vim fir_nuggets/models.py 
+  381  python3 manage.py migrate --settings fir.config.production
+  382  vim fir_nuggets/models.py 
+  383  python3 manage.py migrate --settings fir.config.production
+  384  vim fir_plugins/links.py 
+  385  python3 manage.py migrate --settings fir.config.production
+  386  vim incidents/views.py 
+  387  python3 manage.py migrate --settings fir.config.production
+  388  vim fir/urls.py 
+  389  python3 manage.py migrate --settings fir.config.production
+  390  vim fir/urls.py 
+  391  python3 manage.py migrate --settings fir.config.production
+  392  vim fir/urls.py 
+  393  vim incidents/urls.py 
+  394  python3 manage.py migrate --settings fir.config.production
+  395  vim fir/urls.py 
+  396  python3 manage.py migrate --settings fir.config.production
+  397  vim incidents/urls.py 
+  398  python3 manage.py migrate --settings fir.config.production
+  399  vim incidents/urls.py 
+  400  vim fir/urls.py 
+  401  fir/urls.py 
+  402  vim fir/urls.py 
+  403  vim incidents/urls.py 
+  404  vim fir/urls.py 
+  405  python3 manage.py migrate --settings fir.config.production
+  406  vim fir/urls.py 
+  407  python3 manage.py migrate --settings fir.config.production
+  408  vim incidents/urls.py 
+  409  vim fir/urls.py 
+  410  vim incidents/urls.py 
+  411  vim fir/urls.py 
+  412  vim incidents/custom_urls/events.py 
+  413  python3 manage.py migrate --settings fir.config.production
+  414  vim incidents/custom_urls/stats.py 
+  415  python3 manage.py migrate --settings fir.config.production
+  416  vim incidents/custom_urls/ajax.py 
+  417  python3 manage.py migrate --settings fir.config.production
+  418  vim incidents/custom_urls/user.py 
+  419  python3 manage.py migrate --settings fir.config.production
+  420  vim incidents/custom_urls/dashboard.py 
+  421  python3 manage.py migrate --settings fir.config.production
+  422  vim requirements.txt 
+  423  pip3 install -r requirements.txt 
+  424  python3 manage.py migrate --settings fir.config.production
+  425  vim incidents/admin.py 
+  426  python3 manage.py migrate --settings fir.config.production
+  427  vim fir/urls.py 
+  428  ls
+  429  cd fir
+  430  ls
+  431  vim urls.py 
+  432  cd ..
+  433  ls
+  434  python3 manage.py migrate --settings fir.config.production
+  435  vim fir/urls.py 
+  436  python3 manage.py migrate --settings fir.config.production
+  437  vim fir/urls.py 
+  438  python3 manage.py migrate --settings fir.config.production
+  439  vim fir/urls.py 
+  440  python3 manage.py migrate --settings fir.config.production
+  441  vim fir/urls.py 
+  442  ls
+  443  vim fir/config/installed_apps.txt
+  444  vim fir_alerting/
+  445  vim fir_alerting/models.py 
+  446  vim fir_alerting/urls.py 
+  447  vim fir_todos/urls.py 
+  448  vim fir/config/installed_apps.txt
+  449  vim fir_nuggets/urls.py 
+  450  vim fir_api/urls.py 
+  451  python3 manage.py migrate --settings fir.config.production
+  452  vim fir/urls.py 
+  453  python3 manage.py migrate --settings fir.config.production
+  454  vim fir_abuse/urls.py 
+  455  vim fir_artifacts/url
+  456  vim fir_artifacts/urls.py 
+  457  vim fir_email/urls.py 
+  458  vim fir_notifications/urls.py 
+  459  vim fir_relations/urls.py 
+  460  vim fir_threatintel/urls.py 
+  461  python3 manage.py migrate --settings fir.config.production
+  462  2to3 fir_alerting/views.py 
+  463  2to3 -w fir_alerting/views.py 
+  464  python3 manage.py migrate --settings fir.config.production
+  465  vim requirements.txt 
+  466  vim fir_api/views.py 
+  467  python3 manage.py migrate --settings fir.config.production
+  468  vim fir_api/views.py 
+  469  python3 manage.py migrate --settings fir.config.production
+  470  vim fir_api/views.py 
+  471  python3 manage.py migrate --settings fir.config.production
+  472  vim fir_api/views.py 
+  473  python3 manage.py migrate --settings fir.config.production
+  474  ls
+  475  vim fir/config/base.py 
+  476  vim requirements.txt 
+  477  python3 manage.py migrate --settings fir.config.production
+  478  ls
+  479  cd fir
+  480  ls
+  481  vim settings.py 
+  482  python3 manage.py migrate --settings fir.config.production
+  483  cd ..
+  484  python3 manage.py migrate --settings fir.config.production
+  485  vim fir/settings.py 
+  486  python3 manage.py migrate --settings fir.config.production
+  487  ls
+  488  cd fir
+  489  ls
+  490  cd config/
+  491  ls
+  492  vim production.py
+  493  cd ..
+  494  python3 manage.py migrate --settings fir.config.production
+  495  vim incidents/migrations/0001_initial.py 
+  496  python3 manage.py migrate --settings fir.config.production
+  497  vim incidents/migrations/0001_initial.py 
+  498  python3 manage.py migrate --settings fir.config.production
+  499  vim incidents/migrations/0001_initial.py 
+  500  python3 manage.py migrate --settings fir.config.production
+  501  vim incidents/migrations/0001_initial.py 
+  502  python3 manage.py migrate --settings fir.config.production
+  503  vim incidents/migrations/0001_initial.py 
+  504  python3 manage.py migrate --settings fir.config.production
+  505  vim incidents/migrations/0001_initial.py 
+  506  python3 manage.py migrate --settings fir.config.production
+  507  vim incidents/migrations/0001_initial.py 
+  508  python3 manage.py migrate --settings fir.config.production
+  509  vim incidents/migrations/0001_initial.py 
+  510  python3 manage.py migrate --settings fir.config.production
+  511  vim fir_artifacts/migrations/0002_create_artifacts.py 
+  512  python3 manage.py migrate --settings fir.config.production
+  513  vim fir_todos/migrations/0004_auto_20160112_1310.py 
+  514  python3 manage.py migrate --settings fir.config.production
+  515  vim fir_todos/migrations/0001_initial.py 
+  516  python3 manage.py migrate --settings fir.config.production
+  517  vim fir_todos/migrations/0002_auto_20160110_0223.py 
+  518  python3 manage.py migrate --settings fir.config.production
+  519  vim fir_todos/migrations/0002_auto_20160110_0223.py 
+  520  python3 manage.py migrate --settings fir.config.production
+  521  vim fir_nuggets/migrations/0001_initial.py 
+  522  python3 manage.py migrate --settings fir.config.production
+  523  python3 manage.py createsuperuser --settings fir.config.production
+  524  python3 manage.py loaddata incidents/fixtures/seed_data.json --settings fir.config.production
+  525  python3 manage.py collectstatic --settings fir.config.production
+  526  sudo chown www-data logs/errors.log uploads
+  527  sudo chmod 750 logs/errors.log uploads
+  528  sudo pip3 install uwsgi
+  529  sudo chsh www-data
+  530  mkdir run
+  531  sudo chown www-data run
+  532  vim /etc/systemd/system/fir_uwsgi.service
+  533  pwd
+  534  ls
+  535  sudo vim /etc/systemd/system/fir_uwsgi.service
+  536  sudo service fir_uwsgi start
+  537  $ wget https://raw.githubusercontent.com/nginx/nginx/master/conf/uwsgi_params -P run
+  538  wget https://raw.githubusercontent.com/nginx/nginx/master/conf/uwsgi_params -P run
+  539  sudo wget https://raw.githubusercontent.com/nginx/nginx/master/conf/uwsgi_params -P run
+  540  sudo mv /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default.bak
+  541  sudo vim /etc/nginx/sites-available/fir
+  542  sudo ln -s /etc/nginx/sites-available/fir /etc/nginx/sites-enabled/fir
+  543  sudo service nginx reload
+  544  sudo systemctl status uwsgi
+  545  sudo systemctl status fir_uwsgi
+  546  sudo /etc/init/fir.conf
+  547  sudo vim /etc/systemd/system/fir_uwsgi.service
+  548  sudo service fir_uwsgi start
+  549  sudo systemctl daemon-reload
+  550  sudo service fir_uwsgi restart
+  551  sudo systemctl status fir_uwsgi
+  552  ls
+  553  cd fir
+  554  ls
+  555  sudo vim /etc/systemd/system/fir_uwsgi.service
+  556  sudo systemctl daemon-reload
+  557  sudo service fir_uwsgi restart
+  558  sudo systemctl status fir_uwsgi
+  559  sudo vim /etc/systemd/system/fir_uwsgi.service
+  560  sudo systemctl daemon-reload
+  561  sudo service fir_uwsgi restart
+  562  sudo systemctl status fir_uwsgi
+  563  cd ..
+  564  ls
+  565  run
+  566  cd run
+  567  ls
+  568  cd ..
+  569  ls
+  570  cd fir
+  571  ls
+  572  vim wsgi.py 
+  573  cd config/
+  574  ls
+  575  cat production.py
+  576  vim production.py
+  577  ls
+  578  cd ..
+  579  ls
+  580  cd ..
+  581  ls
+  582  cd logs
+  583  ls
+  584  cat errors.log 
+  585  vim errors.log 
+  586  cd ..
+  587  ls
+  588  sudo service fir_uwsgi start
+  589  sudo systemctl status fir_uwsgi
+  590  ls -lrthal
+  591  cd static/
+  592  ls
+  593  cd ..
+  594  ls
+  595  sudo vim /etc/systemd/system/fir_uwsgi.service
+  596  sudo systemctl daemon-reload
+  597  sudo service fir_uwsgi start
+  598  sudo systemctl status fir_uwsgi
+  599  sudo vim /etc/systemd/system/fir_uwsgi.service
+  600  ls -lrthal
+  601  chmod 666 run
+  602  sudo chmod 666 run
+  603  ls -lrthal
+  604  sudo service fir_uwsgi stop
+  605  sudo service fir_uwsgi start
+  606  sudo systemctl status fir_uwsgi
+  607  sudo vim /etc/nginx/sites-available/fir
+  608  sudo service fir_uwsgi stop
+  609  sudo systemctl status fir_uwsgi
+  610  /usr/bin/uw
+  611  uwsgi
+  612  sudo vim /etc/systemd/system/fir_uwsgi.service
+  613  sudo systemctl daemon-reload
+  614  sudo service fir_uwsgi start
+  615  sudo vim /etc/systemd/system/fir_uwsgi.service
+  616  sudo service fir_uwsgi start
+  617  sudo systemctl daemon-reload
+  618  sudo service fir_uwsgi start
+  619  sudo systemctl status fir_uwsgi
+  620  git status
+  621  git add .
+  622  cd ..
+  623  ls
+  624  cd FIR/
+  625  ls
+  626  cd ..
+  627  cd env-FIR/
+  628  ls
+  629  cd ..
+  630  cd FIR/
+  631  ls
+  632  ls -lrthal
+  633  vim .gitignore
+  634  git add .
+  635  git commit
+  636  git config --global user.email briwardster@gmail.com
+  637  git config --global user.name "Heath"
+  638  git commit -a
+  639  git push
+  640  git status
+  641  sudo vim /etc/nginx/sites-available/fir 
+  642  history >> install4.txt

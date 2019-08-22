@@ -1,0 +1,224 @@
+    1  sudo apt install ssh
+    2  ifconfig
+    3  sudo apt install net-tools
+    4  ifconfig
+    5  ls -lrthal
+    6  cd ..
+    7  sudo chown -R vault vault
+    8  cd vault/
+    9  ls
+   10  cd config/
+   11  ls
+   12  ls -lrthal
+   13  sudo chgrp vault default.hcl 
+   14  ls -lrthal
+   15  cd ../tls/
+   16  ls
+   17  ls -lrthal
+   18  sudo chgrp vault vaultkey.key 
+   19  sudo chgrp vault vaultcert.crt 
+   20  ls -lrthal
+   21  sudo setcap cap_ipc_lock=+ep /opt/vault/bin/vault 
+   22  cd ..
+   23  vault status
+   24  cd ..
+   25  cd config/
+   26  sudo vim default.hcl 
+   27  vault status
+   28  export VAULT_ADDR='http://127.0.0.1:8200'
+   29  vault status
+   30  vault kv enabl-versioning secret/
+   31  vault kv enable-versioning secret/
+   32  vault login
+   33  vault kv enable-versioning secret/
+   34  ls
+   35  sudo vim default.hcl 
+   36  vault status
+   37  vault list
+   38  vault list secrts
+   39  vault list secrets
+   40  vault list secret
+   41  vault kv list secret
+   42  vault kv list secret -detailed
+   43  vault kv list secret detailed
+   44  vault kv list secret
+   45  vault kv list help
+   46  vault kv
+   47  vault kv get secret/cubbyhole
+   48  vault kv get testkv2
+   49  vault kv get testkv2/one
+   50  vault list secrets -detailed
+   51  vault
+   52  vault list
+   53  vault secrets list -detailed
+   54  ssh
+   55  cd /opt/vault
+   56  ls
+   57  cd config/
+   58  ls
+   59  sudo vim default.hcl 
+   60  cd ..
+   61  cd log
+   62  cat vault-error.log 
+   63  cat vault-stdout.log 
+   64  tail -f vault-stdout.log 
+   65  sudo git-clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   66  git-clone
+   67  sudo git clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   68  git
+   69  sudo apt install git
+   70  sudo git clone --branch v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   71  sudo git clone --branch 0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   72  sudo git clone --b v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   73  sudo git clone -b v0.11.3 https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   74  sudo git clone https://github.com/hashicorp/terraform-aws-vault.git terraform-aws-vault/modules/install-vault/install-vault --version 1.0.1
+   75  sudo git clone https://github.com/hashicorp/terraform-aws-vault.git
+   76  ls
+   77  cd terraform-aws-vault/
+   78  ls
+   79  cd modules/
+   80  cd install-vault/
+   81  ls
+   82  ./install-vault --version 1.0.1
+   83  cd /opt
+   84  ls
+   85  cd vault/
+   86  ls
+   87  cd config/
+   88  ls
+   89  vault
+   90  vault status
+   91  cd /etc
+   92  ls
+   93  cd supervisor/
+   94  ls
+   95  cat supervisord.conf 
+   96  ls
+   97  cd conf.d/
+   98  ls
+   99  cd /
+  100  cd /opt
+  101  cd vault
+  102  cd bin
+  103  ls
+  104  cd ..
+  105  ls
+  106  sudo ls tls
+  107  sudo cd tls
+  108  sudo ls log
+  109  cd tls
+  110  ls
+  111  openssl
+  112  openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365-nodes -out vaultcert.crt -keyout vaultkey.key
+  113  openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out vaultcert.crt -keyout vaultkey.key
+  114  sudo openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out vaultcert.crt -keyout vaultkey.key
+  115  ls
+  116  cd ..
+  117  cd bin
+  118  ./run-vault --tls-cert-file ../tls/vaultcert.crt --tls-key-file ../tls/vaultkey.key 
+  119  cd ..
+  120  ls
+  121  cd config/
+  122  ls
+  123  cd /etc/supervisor/conf.d/
+  124  ls
+  125  cd /opt/vault/bin
+  126  ls
+  127  sudo ./run-vault --tls-cert-file ../tls/vaultcert.crt --tls-key-file ../tls/vaultkey.key 
+  128  ./run-vault 
+  129  ls
+  130  cd ..
+  131  cd config/
+  132  ls
+  133  cd /etc/supervisor/conf.d/
+  134  ls
+  135  touch run-vault.conf
+  136  sudo touch run-vault.conf
+  137  ls
+  138  cd /opt/vault
+  139  cd config/
+  140  ls
+  141  touch default.hcl
+  142  sudo touch default.hcl
+  143  ls -lrthal
+  144  cd ..
+  145  ls
+  146  sudo ls -lrthal
+  147  env
+  148  ls
+  149  cd data
+  150  ls
+  151  cd ..
+  152  ls
+  153  cd /etc/supervisor/conf.d/
+  154  sudo vim run-vault.conf 
+  155  sudo apt install vim
+  156  sudo vim run-vault.conf 
+  157  ls /opt/vault/tls
+  158  sudo chmod 400 /opt/vault/tls/vaultkey.key 
+  159  sudo supervisorctl reread
+  160  sudo supervisorctl update
+  161  sudo supervisorctl start vault
+  162  sudo supervisorctl restart vault
+  163  export VAULT_ADDR='http://127.0.0.1:8200'
+  164  vault status
+  165  vualt secrets list
+  166  vault secrets list
+  167  vault secrets list -detailed
+  168  vault secrets/testkv2 list -detailed
+  169  vault path-help
+  170  vault path-help secrets
+  171  vault path-help secret
+  172  vault path-help pki
+  173  vault path-help testkv2
+  174  vault path-help testkv2/data
+  175  vault path-help testkv2/config
+  176  cd /opt/vault
+  177  cd log
+  178  ls
+  179  ls -lrthal
+  180  tail -f vault-stdout.log 
+  181  ifconfig
+  182  ls
+  183  tail -f vault_audit.log 
+  184  sudo tail -f vault_audit.log 
+  185  history export
+  186  history | grep export
+  187  export VAULT_ADDR='http:127.0.0.1:8200'
+  188  vault status
+  189  export VAULT_ADDR='http://127.0.0.1:8200'
+  190  vault status
+  191  history | grep restart
+  192  sudo supervisorctl restart vault
+  193  sudo vim /opt/vault/config/
+  194  sudo vim /opt/vault/config/default.hcl 
+  195  sudo supervisorctl restart vault
+  196  vault status
+  197  vault unseal
+  198  vault operator unseal
+  199  vault login
+  200  vault status
+  201  vault audit enable file file_path=/opt/vault/log/vault_audit.log
+  202  history
+  203  export VAULT_ADDR='http://127.0.0.1:8200'
+  204  sudo supervisorctl restart vault
+  205  ifconfig
+  206  vault status
+  207  cd /opt/vault/config/
+  208  ls
+  209  sudo vim default.hcl 
+  210  vault login
+  211  vault write auth/userpass/users/hward password=super123 policies=root
+  212  sudo vim default.hcl 
+  213  vault status
+  214  ifconfig
+  215  sudo vim default.hcl 
+  216  ifconfig
+  217  sudo vim default.hcl 
+  218  sudo shutdown -r now
+  219  cd ..
+  220  cd fir_todos/
+  221  vim views.py 
+  222  cd ..
+  223  git status
+  224  history >> install5.txt

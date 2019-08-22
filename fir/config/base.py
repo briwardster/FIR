@@ -71,7 +71,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,7 +84,7 @@ MIDDLEWARE_CLASSES = (
 
 if TF_INSTALLED:
     TF_MIDDLEWARE = ('django_otp.middleware.OTPMiddleware',)
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + TF_MIDDLEWARE
+    MIDDLEWARE = MIDDLEWARE + TF_MIDDLEWARE
 
 
 # Authentication and authorization backends
