@@ -334,7 +334,7 @@ def new_event(request):
             i.opened_by = request.user
             i.save()
             form.save_m2m()
-            i.refresh_main_business_lines()
+            i.refresh_main_business_lines.set()
             i.done_creating()
 
             if i.is_incident:
