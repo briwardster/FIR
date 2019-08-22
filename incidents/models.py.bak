@@ -68,7 +68,7 @@ class Profile(models.Model):
     hide_closed = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return "Profile for user '{}'".format(self.user)
+        return u"Profile for user '{}'".format(self.user)
 
 
 # Audit trail ================================================================
@@ -83,11 +83,11 @@ class Log(models.Model):
 
     def __unicode__(self):
         if self.incident:
-            return "[%s] %s %s (%s)" % (self.when, self.what, self.incident, self.who)
+            return u"[%s] %s %s (%s)" % (self.when, self.what, self.incident, self.who)
         elif self.comment:
-            return "[%s] %s comment on %s (%s)" % (self.when, self.what, self.comment.incident, self.who)
+            return u"[%s] %s comment on %s (%s)" % (self.when, self.what, self.comment.incident, self.who)
         else:
-            return "[%s] %s (%s)" % (self.when, self.what, self.who)
+            return u"[%s] %s (%s)" % (self.when, self.what, self.who)
 
 
 class LabelGroup(models.Model):
@@ -111,7 +111,7 @@ class BusinessLine(MP_Node, AuthorizationModelMixin):
     def __unicode__(self):
         parents = list(self.get_ancestors())
         parents.append(self)
-        return " > ".join([bl.name for bl in parents])
+        return u" > ".join([bl.name for bl in parents])
 
     class Meta:
         verbose_name = _('business line')
@@ -293,7 +293,7 @@ class Comments(models.Model):
         verbose_name_plural = 'comments'
 
     def __unicode__(self):
-        return "Comment for incident %s" % self.incident.id
+        return u"Comment for incident %s" % self.incident.id
 
     @classmethod
     def create_diff_comment(cls, incident, data, user):
@@ -331,7 +331,7 @@ class Comments(models.Model):
                 if new == "B":
                     new = 'Blocked'
 
-                comments += 'Changed "%s" from "%s" to "%s"; ' % (label, old, new)
+                comments += u'Changed "%s" from "%s" to "%s"; ' % (label, old, new)
 
         if comments:
             Comments.objects.create(
