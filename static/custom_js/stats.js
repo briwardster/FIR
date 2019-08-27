@@ -22,7 +22,7 @@ function generate_table(selector, url) {
 			tr.append("<td>"+moment(incident.date, 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')+"</td>");
 			tr.append("<td>"+incident.id+"</td>");
 			tr.append("<td>"+incident.subject+"</td>");
-			tr.append("<td>"+incident.category+"</td>");
+			tr.append("<td>"+incident.category.name+"</td>");
 			tr.append("<td>"+incident.confidentiality_display+"</td>");
 			tr.append("<td><span class='badge threatcon-"+incident.severity+"'>"+incident.severity+"</span></td>");
 			tr.append("<td>"+incident.business_lines_names+"</td>");
