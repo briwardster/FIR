@@ -160,7 +160,7 @@ class IncidentCategory(models.Model):
     class Meta:
         verbose_name_plural = "Incident categories"
 
-    def __unicode__(self):
+    def __str__(self):    # __unicode__(self):
         return self.name
 
 
