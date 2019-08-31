@@ -224,9 +224,9 @@ div.upload span {
 	margin: 3px 9px 0 5px;
 }
 
-/* Navbar  --------------------------------------*/
+/* Navbar  -------------------------------------265CD8-102F56*/
 
-.navbar-sm .navbar { min-height:40px; height: 40px; background-color: #101010; }
+.navbar-sm .navbar { min-height:40px; height: 40px; background-color: #102F56; }
 .navbar-sm .navbar .navbar-brand { height: 40px; padding: 0px 12px; font-size: 16px; line-height: 40px; }
 .navbar-sm .navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: 40px; }
 .navbar-sm .navbar .navbar-btn { margin-top: 4px; margin-bottom: 4px; }
@@ -237,7 +237,7 @@ div.upload span {
 .navbar-sm .navbar-header { min-height: 40px; height: 40px; }
 
 .navbar-inverse input, .navbar-inverse .input-group-addon {
-  background: black;
+  background: #102F56;
   border-color: #555;
   color: #ddd;
 }
