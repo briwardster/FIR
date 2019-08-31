@@ -450,7 +450,7 @@ msgid "Sign in &middot; FIR"
 msgstr "Se connecter à &middot; FIR"
 
 #: templates/incidents/login.html:34
-msgid "Sign in to FIR"
+msgid "Sign in"
 msgstr "Se connecter à FIR"
 
 #: templates/incidents/login.html:37 templates/user/profile.html:41

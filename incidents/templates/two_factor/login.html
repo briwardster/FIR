@@ -12,7 +12,7 @@
 	<form class="form-signin" method="post"> {% csrf_token %}
 	  {{ wizard.management_form }}
 	  <img class="img-responsive" src="{% static "img/logo.png" %}" alt="Logo" />
-	  <h2 class="form-signin-heading">{%  trans "Sign in to FIR" %}</h2>
+	  <h2 class="form-signin-heading">{%  trans "Sign in" %}</h2>
 	  <fieldset>
 	    {% for field in form %}
 	    {% if field|is_checkbox %}
