@@ -119,20 +119,20 @@ h4 {
 
 
 /* badges -------------------------------------*/
-.threatcon-1 { /* green */
+.threatcon-4 { /* green */
 	background-color: #468847!important;
 }
 
-.threatcon-2 { /* yellow */
+.threatcon-3 { /* yellow */
 	background-color: #fefe00!important;
 	color:black!important;
 }
 
-.threatcon-3 { /* orange */
+.threatcon-2 { /* orange */
 	background-color: #f89406!important;
 }
 
-.threatcon-4 { /* red */
+.threatcon-1 { /* red */
 	background-color: #f81920!important;
 }
 
