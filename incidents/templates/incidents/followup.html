@@ -14,8 +14,8 @@
 	<div class='frame'>
 
 		<div class='header'>
-			<img class="img-responsive" src="{% static "img/logo.png" %}" alt="Logo" />
-			<!-- <img src="{% static "img/logo.png" %}" /> -->
+			<!-- <img class="img-responsive" src="{% static "img/logo.png" %}" alt="Logo" /> -->
+			<img src="{% static "img/logo.png" %}" sizes="(max-width: 600px) 200px, 50vw"/>
 			<br style='clear:both' />
 			<div class='title'>
 				<h1 class='float'>{% if incident.is_incident %}{% trans "Incident followup" %}{%else%}{% trans "Event followup" %}{%endif%} [C{{incident.confidentiality}}] [{{incident.category}}] - {{incident.subject}}</h1>
