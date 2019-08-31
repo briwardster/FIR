@@ -238,7 +238,7 @@ div.upload span {
 
 .navbar-inverse input, .navbar-inverse .input-group-addon {
   background: #102F56;
-  border-color: #555;
+  border-color: #ddd;
   color: #ddd;
 }
 
@@ -248,7 +248,7 @@ div.upload span {
 
 
 .navbar-collapse {
-	background-color: #101010;
+	background-color: #102F56;
 	max-height: none !important;
 }
 
@@ -327,12 +327,12 @@ footer div {
 
 .usergreet {
 	float:right;
-	color:#999;
+	color:#ddd;
 	padding:10px 15px 10px;
 }
 
 .usergreet a {
-	color:#999;
+	color:#ddd;
 }
 
 a .glyphicon {
